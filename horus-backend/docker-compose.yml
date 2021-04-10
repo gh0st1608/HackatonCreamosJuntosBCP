@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  nodeserver:
+    restart: unless-stopped
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: dahsser/vaccine-devs
+    container_name: nodeserver
+    ports:
+      - '3000:3000'
+    networks:
+      - horus-backend-network
+networks:
+  horus-backend-network:
+    driver: bridge
